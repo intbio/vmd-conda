@@ -1,4 +1,4 @@
-# gromacs-conda
+# vmd-conda
 
 Anaconda recipe for [VMD](http://www.ks.uiuc.edu/Research/vmd/).
 Compiles VMD 64-bit with Python support.
@@ -23,5 +23,6 @@ conda-build -c conda-forge vmd_VERSION
 ## Installing 
 
 ```
-conda install -c conda-forge -c PATH_TO_CHANNEL vmd=1.9.3
+git clone git@github.com:intbio/conda.git
+conda install -c conda-forge -c file://PATH_TO_CHANNEL vmd=1.9.3
 ```
