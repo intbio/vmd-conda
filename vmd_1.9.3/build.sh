@@ -13,10 +13,10 @@ export MACOSX_DEPLOYMENT_TARGET=10.9 # - helps on some OSX platforms
 #Compile plugins first
 export PLUGINDIR="$(pwd)/vmd-1.9.3/plugins"
 cd plugins
-make   MACOSXX86_64
 export export TCLINC=”-I$PREFIX/include”
 export export TCLLIB=”-L$PREFIX/lib”
-make   distrib TCLINC=$TCLINC TCLLIB=$TCLLIB
+make   MACOSXX86_64 TCLINC=$TCLINC TCLLIB=$TCLLIB
+make   distrib 
 cd ../vmd-1.9.3
 # echo "MACOSXX86_64 LP64 FLTKOPENGL FLTK TK TDCONNEXION LIBTACHYON NETCDF TCL PYTHON PTHREADS NUMPY ACTC GCC" > configure.options
 echo "MACOSXX86_64 LP64  FLTK FLTKOPENGL TK  NETCDF TCL PTHREADS  GCC" > configure.options
