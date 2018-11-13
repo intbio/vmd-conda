@@ -15,14 +15,15 @@ build:
 # for latest release. Note that version scheme changed from
 # 5.1 to 2016.x and 2018.x
 source:
-  git_url: https://github.com/intbio/vmd_src.git
+  #git_url: https://github.com/intbio/vmd_src.git
+  git_url: git@github.com:intbio/vmd_src.git
   git_rev: v1.9.3
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - cmake
+   # - cmake
   host:
   #  - openmp # [linux]
   #  - ocl-icd

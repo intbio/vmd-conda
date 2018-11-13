@@ -1,27 +1,27 @@
 # gromacs-conda
 
-Anaconda recipe for [Gromacs](http://www.gromacs.org).
-A very basic build - mainly to prepare files for an MD run on a computer cluster.
+Anaconda recipe for [VMD](http://www.ks.uiuc.edu/Research/vmd/).
+Compiles VMD 64-bit with Python support.
 
 
 
-## Building and uploading to anaconda
+## Building 
 ```
 conda install conda-build
-conda install anaconda-client
-anaconda login
+#conda install anaconda-client
 
 #For OSX you'll need to download older compatible SDK
 #See here https://conda.io/docs/user-guide/tasks/build-packages/compiler-tools.html
 
-#conda config --add channels conda-forge
-conda-build -c conda-forge gromacs_VERSION
-anaconda upload path_to_package
-```
+conda-build -c conda-forge vmd_VERSION
 
-
-## Installing from Anaconda cloud
+#VMD is a licenced product, so you'll need to store the build in your customly hosted repository
 
 ```
-conda install -c conda-forge -c intbio gromacs=2018.3
+
+
+## Installing 
+
+```
+conda install -c conda-forge -c PATH_TO_CHANNEL vmd=1.9.3
 ```
