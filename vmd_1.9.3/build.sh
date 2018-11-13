@@ -33,9 +33,16 @@ sed -i.bak 's/__APPLE__/__APPLE__NO/g' src/py_commands.h
 export VMDINSTALLBINDIR=$PREFIX/bin #/usr/local/bin
 export VMDINSTALLLIBRARYDIR=$PREFIX/vmd #/usr/local/lib/$install_name
 export PYTHON_INCLUDE_DIR=$PREFIX/include/python2.7
-export PYTHON_LIBRARY=$PREFIX/lib/python2.7/config
+export PYTHON_LIBRARY_DIR=$PREFIX/lib/python2.7/config
 export TCL_INCLUDE_DIR=$PREFIX/include/
 export TCL_LIBRARY_DIR=$PREFIX/lib/
+
+#fix code
+sed -i.bak 's/lpython2.5/lpython2.7/g' configure
+sed -i.bak 's/$python_include     = "-F/#/g' configure
+sed -i.bak 's/$python_library     = "";/#/g' configure
+sed -i.bak 's/$python_libs        = "-framework Python -lpthread";/#/g' configure
+
 
 ./configure 
 cd src
