@@ -26,10 +26,10 @@ echo "MACOSXX86_64 LP64  FLTK FLTKOPENGL TK  NETCDF TCL PTHREADS  GCC " > config
 #Fix code
 sed -i.bak 's/MACOSX/MACOSXX86/g' bin/vmd.sh
 sed -i.bak 's/MACOSX/MACOSXX86/g' bin/vmd.csh
-sed -i.bak 's/__APPLE__/__APPLE__NO/g' src/VMDTkinterMenu.h
-sed -i.bak 's/__APPLE__/__APPLE__NO/g' src/PythonTextInterp.h
-sed -i.bak 's/__APPLE__/__APPLE__NO/g' src/PythonTextInterp.C
-sed -i.bak 's/__APPLE__/__APPLE__NO/g' src/py_commands.h
+# sed -i.bak 's/__APPLE__/__APPLE__NO/g' src/VMDTkinterMenu.h
+# sed -i.bak 's/__APPLE__/__APPLE__NO/g' src/PythonTextInterp.h
+# sed -i.bak 's/__APPLE__/__APPLE__NO/g' src/PythonTextInterp.C
+# sed -i.bak 's/__APPLE__/__APPLE__NO/g' src/py_commands.h
 
 #export VMDINSTALLNAME='vmd'
 export VMDINSTALLBINDIR=$PREFIX/bin #/usr/local/bin
@@ -42,10 +42,10 @@ export TCL_INCLUDE_DIR=$PREFIX/include/
 export TCL_LIBRARY_DIR=$PREFIX/lib/
 
 #fix code
-sed -i.bak 's/lpython2.5/lpython2.7/g' configure
-sed -i.bak 's/$python_include     = "-F/#/g' configure
-sed -i.bak 's/$python_library     = "";/#/g' configure
-sed -i.bak 's/$python_libs        = "-framework Python -lpthread";/#/g' configure
+# sed -i.bak 's/lpython2.5/lpython2.7/g' configure
+# sed -i.bak 's/$python_include     = "-F/#/g' configure
+# sed -i.bak 's/$python_library     = "";/#/g' configure
+# sed -i.bak 's/$python_libs        = "-framework Python -lpthread";/#/g' configure
 
 
 ./configure 
