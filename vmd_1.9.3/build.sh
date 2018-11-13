@@ -13,19 +13,21 @@ export MACOSX_DEPLOYMENT_TARGET=10.9 # - helps on some OSX platforms
 #Compile plugins first
 export PLUGINDIR="$(pwd)/vmd-1.9.3/plugins"
 cd plugins
-export export TCLINC=”-I$PREFIX/include”
-export export TCLLIB=”-L$PREFIX/lib”
+export export TCLINC=-I$PREFIX/include/
+export export TCLLIB=-L$PREFIX/lib/
 make   MACOSXX86_64 TCLINC=$TCLINC TCLLIB=$TCLLIB
 make   distrib 
 cd ../vmd-1.9.3
 # echo "MACOSXX86_64 LP64 FLTKOPENGL FLTK TK TDCONNEXION LIBTACHYON NETCDF TCL PYTHON PTHREADS NUMPY ACTC GCC" > configure.options
-echo "MACOSXX86_64 LP64  FLTK FLTKOPENGL TK  NETCDF TCL PTHREADS  GCC" > configure.options
+echo "MACOSXX86_64 LP64  FLTK FLTKOPENGL TK  NETCDF TCL PTHREADS  GCC PYTHON PTHREADS NUMPY" > configure.options
 
 
 #Fix code
 sed -i.bak 's/MACOSX/MACOSXX86/g' bin/vmd.sh
 sed -i.bak 's/MACOSX/MACOSXX86/g' bin/vmd.csh
-
+sed -i.bak 's/__APPLE__/__APPLE__NO/g' src/VMDTkinterMenu.h
+sed -i.bak 's/__APPLE__/__APPLE__NO/g' src/PythonTextInterp.h
+sed -i.bak 's/__APPLE__/__APPLE__NO/g' src/py_commands.h
 
 #export VMDINSTALLNAME='vmd'
 export VMDINSTALLBINDIR=$PREFIX/bin #/usr/local/bin
