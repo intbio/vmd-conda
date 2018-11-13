@@ -15,7 +15,7 @@ export PLUGINDIR="$(pwd)/vmd-1.9.3/plugins"
 cd plugins
 make   MACOSXX86_64
 export export TCLINC=”-I$PREFIX/include”
-export export TCLLIB=”-I$PREFIX/lib”
+export export TCLLIB=”-L$PREFIX/lib”
 make   distrib TCLINC=$TCLINC TCLLIB=$TCLLIB
 cd ../vmd-1.9.3
 # echo "MACOSXX86_64 LP64 FLTKOPENGL FLTK TK TDCONNEXION LIBTACHYON NETCDF TCL PYTHON PTHREADS NUMPY ACTC GCC" > configure.options
