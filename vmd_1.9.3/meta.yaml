@@ -1,0 +1,47 @@
+about:
+  home: http://www.ks.uiuc.edu/Research/vmd/
+  license: VMD license
+  summary: Visual Molecular Dynamics. VMD is a molecular visualization program for displaying, animating, and analyzing large biomolecular systems using 3-D graphics and built-in scripting.
+
+package:
+  name: vmd
+  version: 1.9.3
+
+build:
+  number: 0
+#  skip: True  # [osx]
+
+# See http://manual.gromacs.org/documentation/
+# for latest release. Note that version scheme changed from
+# 5.1 to 2016.x and 2018.x
+source:
+  git_url: https://github.com/intbio/vmd_src.git
+  git_rev: v1.9.3
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - cmake
+  host:
+  #  - openmp # [linux]
+  #  - ocl-icd
+  #  - libhwloc 1.*
+  #  - fftw
+  #  - perl
+    - python >=2.7
+  run:
+ #   - ocl-icd
+  #  - openmp # [linux]
+  #  - fftw
+  #  - libhwloc 1.*
+
+test:
+  commands:
+    - vmd -v
+
+
+#extra:
+#  identifiers:
+#    - biotools:gromacs
+#    - doi:10.1016/j.softx.2015.06.001
