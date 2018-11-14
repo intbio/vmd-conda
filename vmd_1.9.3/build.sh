@@ -55,6 +55,9 @@ sed -i.bak 's/tk8.5-x11/tk8.5/g' Makefile
 sed -i.bak 's/tcl8.5-x11/tcl8.5/g' Makefile
 sed -i.bak 's/lfltk-x11/lfltk/g' Makefile
 sed -i.bak 's/-lnetcdf/ /g' Makefile
+sed -i.bak 's/-lfltk_gl/ /g' Makefile
+sed -i.bak "s&-L../lib/fltk/MACOSXX86_64&-L$TCL_LIBRARY_DIR&g" Makefile
+
 
 make -j 8
 make install
