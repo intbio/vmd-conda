@@ -20,7 +20,10 @@ make   distrib
 cd ../vmd-1.9.3
 # echo "MACOSXX86_64 LP64 FLTKOPENGL FLTK TK TDCONNEXION LIBTACHYON NETCDF TCL PYTHON PTHREADS NUMPY ACTC GCC" > configure.options
 # echo "MACOSXX86_64 LP64  FLTK FLTKOPENGL TK  NETCDF TCL PTHREADS  GCC PYTHON PTHREADS NUMPY" > configure.options
-echo "MACOSXX86_64 LP64  FLTK FLTKOPENGL TK  NETCDF TCL PTHREADS  GCC " > configure.options
+# echo "MACOSXX86_64 LP64  FLTK OPENGL TK  NETCDF TCL PTHREADS  GCC " > configure.options
+
+#This compiles but no graphics.
+echo "MACOSXX86_64 LP64  FLTK  TK  NETCDF TCL PTHREADS  GCC " > configure.options
 
 
 #Fix code
