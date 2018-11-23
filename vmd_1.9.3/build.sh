@@ -55,9 +55,9 @@ sed -i.bak 's/__APPLE__/__APPLE__NO/g' src/py_commands.h
 export VMDINSTALLBINDIR=$PREFIX/bin #/usr/local/bin
 export VMDINSTALLLIBRARYDIR=$PREFIX/vmd #/usr/local/lib/$install_name
 export PYTHON_INCLUDE_DIR=$PREFIX/include/python2.7
-export NUMPY_INCLUDE_DIR=$PREFIX/lib/python3.7/site-packages/numpy/core/include
+export NUMPY_INCLUDE_DIR=$PREFIX/lib/python2.7/site-packages/numpy/core/include
 export PYTHON_LIBRARY=$PREFIX/lib/python2.7/config
-export NUMPY_LIBRARY=$PREFIX/lib/python3.7/site-packages/numpy
+export NUMPY_LIBRARY=$PREFIX/lib/python2.7/site-packages/numpy
 # export TCL_INCLUDE_DIR=$PREFIX/include/
 # export TCL_LIBRARY_DIR=$PREFIX/lib/
 
