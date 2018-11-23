@@ -40,8 +40,9 @@ make   MACOSXX86_64 TCLINC=$TCLINC TCLLIB=$TCLLIB
 make   distrib 
 cd ../vmd-1.9.3
 
-echo "MACOSXX86_64 LP64 FLTKOPENGL FLTK TK  TCL PTHREADS " > configure.options
-
+echo "MACOSXX86_64 LP64 FLTKOPENGL PYTHON FLTK TK  TCL PTHREADS PYTHON NUMPY " > configure.options
+#This is what we want
+#MACOSXX86_64 FLTKOPENGL FLTK COLVARS IMD TK TCL NOSILENT PTHREADS LIBTACHYON ACTC LP64 PYTHON NUMPY
 #Fix code
 sed -i.bak 's/MACOSX/MACOSXX86/g' bin/vmd.sh
 sed -i.bak 's/MACOSX/MACOSXX86/g' bin/vmd.csh
@@ -50,8 +51,8 @@ sed -i.bak 's/MACOSX/MACOSXX86/g' bin/vmd.csh
 #export VMDINSTALLNAME='vmd'
 export VMDINSTALLBINDIR=$PREFIX/bin #/usr/local/bin
 export VMDINSTALLLIBRARYDIR=$PREFIX/vmd #/usr/local/lib/$install_name
-# export PYTHON_INCLUDE_DIR=$PREFIX/include/python2.7
-# export PYTHON_LIBRARY=$PREFIX/lib/python2.7/config
+export PYTHON_INCLUDE_DIR=$PREFIX/include/python2.7
+export PYTHON_LIBRARY=$PREFIX/lib/python2.7/config
 # export TCL_INCLUDE_DIR=$PREFIX/include/
 # export TCL_LIBRARY_DIR=$PREFIX/lib/
 
