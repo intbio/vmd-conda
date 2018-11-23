@@ -24,5 +24,5 @@ conda-build -c conda-forge vmd_VERSION
 
 ```
 git clone git@github.com:intbio/conda.git
-conda install -c conda-forge -c file://PATH_TO_CHANNEL vmd=1.9.3
+conda install -c conda-forge -c "file:/$PWD/conda" vmd=1.9.3
 ```
