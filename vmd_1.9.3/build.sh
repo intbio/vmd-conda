@@ -65,11 +65,10 @@ export NUMPY_LIBRARY=$PREFIX/lib/python3.7/site-packages/numpy
 cd src
 sed -i.bak 's/fltk-1.3.x/fltk/g' Makefile
 sed -i.bak 's%../lib/tk/lib_MACOSXX86_64/Tk.framework/Versions/8.5/Headers%/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers%g' Makefile
-sed -i.bak 's%INCDIRS     =%INCDIRS     = -I$PYTHON_INCLUDE_DIR%g' Makefile
-sed -i.bak 's%INCDIRS     =%INCDIRS     = -I$NUMPY_INCLUDE_DIR%g' Makefile
-sed -i.bak 's%LIBDIRS     =%LIBDIRS     = -L$PYTHON_LIBRARY%g' Makefile
-sed -i.bak 's%LIBDIRS     =%LIBDIRS     = -L$NUMPY_LIBRARY%g' Makefile
-INCDIRS     =
+sed -i.bak "s%INCDIRS     =%INCDIRS     = -I$PYTHON_INCLUDE_DIR%g" Makefile
+sed -i.bak "s%INCDIRS     =%INCDIRS     = -I$NUMPY_INCLUDE_DIR%g" Makefile
+sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$PYTHON_LIBRARY%g" Makefile
+sed -i.bak "%LIBDIRS     =%LIBDIRS     = -L$NUMPY_LIBRARY%g" Makefile
 make veryclean
 make -j 8
 make install
