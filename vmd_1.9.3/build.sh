@@ -46,7 +46,10 @@ echo "MACOSXX86_64 LP64 FLTKOPENGL PYTHON FLTK TK  TCL PTHREADS PYTHON NUMPY " >
 #Fix code
 sed -i.bak 's/MACOSX/MACOSXX86/g' bin/vmd.sh
 sed -i.bak 's/MACOSX/MACOSXX86/g' bin/vmd.csh
-
+sed -i.bak 's/__APPLE__/__APPLE__NO/g' src/VMDTkinterMenu.h
+sed -i.bak 's/__APPLE__/__APPLE__NO/g' src/PythonTextInterp.h
+sed -i.bak 's/__APPLE__/__APPLE__NO/g' src/PythonTextInterp.C
+sed -i.bak 's/__APPLE__/__APPLE__NO/g' src/py_commands.h
 
 #export VMDINSTALLNAME='vmd'
 export VMDINSTALLBINDIR=$PREFIX/bin #/usr/local/bin
