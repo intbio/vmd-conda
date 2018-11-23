@@ -10,7 +10,7 @@ if [[ $target_platform == osx* ]]; then
 
 #export DYLD_LIBRARY_PATH=/opt/MacOSX10.9.sdk/usr/lib/system/:$DYLD_LIBRARY_PATH
 export MACOSX_DEPLOYMENT_TARGET=10.9 # - helps on some OSX platforms
-export OSX_VER=10.9
+export OSX_VER=10.13
 
 cd vmd-1.9.3/lib/fltk
 
