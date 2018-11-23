@@ -55,7 +55,9 @@ sed -i.bak 's/__APPLE__/__APPLE__NO/g' src/py_commands.h
 export VMDINSTALLBINDIR=$PREFIX/bin #/usr/local/bin
 export VMDINSTALLLIBRARYDIR=$PREFIX/vmd #/usr/local/lib/$install_name
 export PYTHON_INCLUDE_DIR=$PREFIX/include/python2.7
+export NUMPY_INCLUDE_DIR=$PREFIX/lib/python3.7/site-packages/numpy/core/include
 export PYTHON_LIBRARY=$PREFIX/lib/python2.7/config
+export NUMPY_LIBRARY=$PREFIX/lib/python3.7/site-packages/numpy
 # export TCL_INCLUDE_DIR=$PREFIX/include/
 # export TCL_LIBRARY_DIR=$PREFIX/lib/
 
@@ -63,6 +65,11 @@ export PYTHON_LIBRARY=$PREFIX/lib/python2.7/config
 cd src
 sed -i.bak 's/fltk-1.3.x/fltk/g' Makefile
 sed -i.bak 's%../lib/tk/lib_MACOSXX86_64/Tk.framework/Versions/8.5/Headers%/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers%g' Makefile
+sed -i.bak 's%INCDIRS     =%INCDIRS     = -I$PYTHON_INCLUDE_DIR%g' Makefile
+sed -i.bak 's%INCDIRS     =%INCDIRS     = -I$NUMPY_INCLUDE_DIR%g' Makefile
+sed -i.bak 's%LIBDIRS     =%LIBDIRS     = -L$PYTHON_LIBRARY%g' Makefile
+sed -i.bak 's%LIBDIRS     =%LIBDIRS     = -L$NUMPY_LIBRARY%g' Makefile
+INCDIRS     =
 make veryclean
 make -j 8
 make install
