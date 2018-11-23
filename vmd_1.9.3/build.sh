@@ -21,6 +21,7 @@ ln -s fltk-1.4.x-r13117 fltk
 
 ln -s fltk include
 cd fltk
+make clean
 ./configure --prefix="$PWD/../MACOSXX86_64" --exec-prefix="$PWD/../MACOSXX86_64" --libdir="$PWD/../MACOSXX86_64" CXXFLAGS="-mmacosx-version-min=$OSX_VER" LDFLAGS="-mmacosx-version-min=$OSX_VER"
 make -j 8
 make install
