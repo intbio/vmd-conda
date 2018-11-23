@@ -24,11 +24,12 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - wget
    # - cmake
   host:
-    - xorg-libx11 # [osx]
-    - fltk=1.3.4
-    - tk=8.5*
+    # - xorg-libx11 # [osx]
+    # - fltk=1.3.4
+    # - tk=8.5*
     - libnetcdf
     #- numpy
   #  - openmp # [linux]
@@ -39,9 +40,9 @@ requirements:
     #- python=2.7
     #- numpy
   run:
-    - xorg-libx11 # [osx]
-    - fltk=1.3.4
-    - tk=8.5*
+    # - xorg-libx11 # [osx]
+    # - fltk=1.3.4
+    # - tk=8.5*
     - libnetcdf
     #- numpy
  #   - ocl-icd
