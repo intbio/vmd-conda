@@ -53,7 +53,7 @@ requirements:
     # - numpy
 test:
  commands:
-  - vmd 
+  - vmd -python
 
 
 #extra:
