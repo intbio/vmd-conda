@@ -12,35 +12,16 @@ if [[ $target_platform == osx* ]]; then
 export MACOSX_DEPLOYMENT_TARGET=10.9 # - helps on some OSX platforms
 export OSX_VER=10.9
 
-cd vmd-1.9.3/lib/fltk
-
-wget http://fltk.org/pub/fltk/snapshots/fltk-1.4.x-r13117.tar.gz
-tar -xf fltk-1.4.x-r13117.tar.gz
-
-ln -s fltk-1.4.x-r13117 fltk
-
-ln -s fltk include
-cd fltk
-make clean
-./configure --prefix="$PWD/../MACOSXX86_64" --exec-prefix="$PWD/../MACOSXX86_64" --libdir="$PWD/../MACOSXX86_64" CXXFLAGS="-mmacosx-version-min=$OSX_VER" LDFLAGS="-mmacosx-version-min=$OSX_VER"
-make -j 8
-make install
-
-
-cd ..
-cd ..
-cd ..
-cd ..
 
 export PLUGINDIR="$PWD/vmd-1.9.3/plugins"
 export TCLINC=-I/System/Library/Frameworks/Tcl.framework/Versions/8.5/Headers
 export TCLLIB=-L/System/Library/Frameworks/Tcl.framework/Versions/8.5/Headers
 cd plugins
-make   MACOSXX86_64 TCLINC=$TCLINC TCLLIB=$TCLLIB
+make   MACOSXX86_64 TCLINC=$PREFIX/include TCLLIB=$TCLLIB
 make   distrib 
 cd ../vmd-1.9.3
 
-echo "MACOSXX86_64 LP64 FLTKOPENGL FLTK TK  TCL PTHREADS PYTHON" > configure.options
+echo "MACOSXX86_64 LP64  TCL PTHREADS " > configure.options
 #This is what we want
 #MACOSXX86_64 FLTKOPENGL FLTK COLVARS IMD TK TCL NOSILENT PTHREADS LIBTACHYON ACTC LP64 NETCDF PYTHON NUMPY
 #NUMPY  - vmdnumpy is tricky
@@ -66,14 +47,16 @@ export NUMPY_LIBRARY=$PREFIX/lib/python2.7/site-packages/numpy
 cd src
 sed -i.bak 's/fltk-1.3.x/fltk/g' Makefile
 sed -i.bak 's%../lib/tk/lib_MACOSXX86_64/Tk.framework/Versions/8.5/Headers%/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers%g' Makefile
-# sed -i.bak "s%INCDIRS     =%INCDIRS     = -I$PREFIX/include%g" Makefile
+sed -i.bak "s%INCDIRS     =%INCDIRS     = -I$PREFIX/include%g" Makefile
 sed -i.bak "s%INCDIRS     =%INCDIRS     = -I$PYTHON_INCLUDE_DIR%g" Makefile
 sed -i.bak "s%INCDIRS     =%INCDIRS     = -I$NUMPY_INCLUDE_DIR%g" Makefile
-
-# sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$PREFIX/lib%g" Makefile
+sed -i.bak "s%LIBDIRS     =%LIBDRS     = -L$PREFIX/lib%g" Makefile
 sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$PYTHON_LIBRARY%g" Makefile
 sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$NUMPY_LIBRARY%g" Makefile
 sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$PREFIX/lib%g" Makefile
+
+sed -i.bak "s%-ltcl8.5-x11%%g" Makefile
+
 
 make veryclean
 make -j 8
