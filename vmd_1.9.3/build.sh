@@ -40,7 +40,7 @@ make   MACOSXX86_64 TCLINC=$TCLINC TCLLIB=$TCLLIB
 make   distrib 
 cd ../vmd-1.9.3
 
-echo "MACOSXX86_64 LP64 FLTKOPENGL FLTK TK  TCL PTHREADS PYTHON NUMPY NETCDF" > configure.options
+echo "MACOSXX86_64 LP64 FLTKOPENGL FLTK TK  TCL PTHREADS PYTHON NUMPY " > configure.options
 #This is what we want
 #MACOSXX86_64 FLTKOPENGL FLTK COLVARS IMD TK TCL NOSILENT PTHREADS LIBTACHYON ACTC LP64 NETCDF PYTHON NUMPY
 #NUMPY  - vmdnumpy is tricky
@@ -66,11 +66,11 @@ export NUMPY_LIBRARY=$PREFIX/lib/python2.7/site-packages/numpy
 cd src
 sed -i.bak 's/fltk-1.3.x/fltk/g' Makefile
 sed -i.bak 's%../lib/tk/lib_MACOSXX86_64/Tk.framework/Versions/8.5/Headers%/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers%g' Makefile
-sed -i.bak "s%INCDIRS     =%INCDIRS     = -I$PREFIX/include%g" Makefile
+# sed -i.bak "s%INCDIRS     =%INCDIRS     = -I$PREFIX/include%g" Makefile
 sed -i.bak "s%INCDIRS     =%INCDIRS     = -I$PYTHON_INCLUDE_DIR%g" Makefile
 sed -i.bak "s%INCDIRS     =%INCDIRS     = -I$NUMPY_INCLUDE_DIR%g" Makefile
 
-sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$PREFIX/lib%g" Makefile
+# sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$PREFIX/lib%g" Makefile
 sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$PYTHON_LIBRARY%g" Makefile
 sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$NUMPY_LIBRARY%g" Makefile
 sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$PREFIX/lib%g" Makefile
