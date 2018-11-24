@@ -16,7 +16,7 @@ conda install conda-build
 #For OSX you'll need to download older compatible SDK
 #See here https://conda.io/docs/user-guide/tasks/build-packages/compiler-tools.html
 #See https://github.com/phracker/MacOSX-SDKs/releases
-conda-build -c conda-forge vmd_VERSION
+conda-build -c conda-forge vmd_1.9.3
 
 #VMD is a licenced product, so you'll need to store the build in your customly hosted repository
 
