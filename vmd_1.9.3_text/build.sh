@@ -55,7 +55,7 @@ sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$PYTHON_LIBRARY%g" Makefile
 sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$NUMPY_LIBRARY%g" Makefile
 sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$PREFIX/lib%g" Makefile
 
-sed -i.bak "s%-ltcl8.5-x11%%g" Makefile
+sed -i.bak "s%-ltcl8.5-x11%-ltcl8.5%g" Makefile
 
 
 make veryclean
