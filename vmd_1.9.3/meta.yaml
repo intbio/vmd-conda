@@ -30,30 +30,30 @@ requirements:
     # - xorg-libx11 # [osx]
     # - fltk=1.3.4
     # - tk=8.5*
-    - libnetcdf
+    # - libnetcdf
     #- numpy
   #  - openmp # [linux]
   #  - ocl-icd
   #  - libhwloc 1.*
   #  - fftw
   #  - perl
-    - python=2.7.10
-    - numpy
+    # - python=2.7.10
+    # - numpy
   run:
     # - xorg-libx11 # [osx]
     # - fltk=1.3.4
     # - tk=8.5*
-    - libnetcdf
+    # - libnetcdf
     #- numpy
  #   - ocl-icd
   #  - openmp # [linux]
   #  - fftw
   #  - libhwloc 1.*
-    - python=2.7.10
-    - numpy
+    # - python=2.7.10
+    # - numpy
 test:
  commands:
-  - vmd -python
+  - vmd 
 
 
 #extra:
