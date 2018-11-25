@@ -6,8 +6,7 @@ Compiles VMD 64-bit with Python support.
 
 
 ## Building 
-Currently, this will not build correctly on OSX 10.14 - conda uses SDK 10.9, fltk will compile incorreclty.
-Surprisingly, when built in 10.13 it will work on 10.14.
+
 
 ```
 conda install conda-build
