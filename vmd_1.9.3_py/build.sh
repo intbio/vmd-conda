@@ -80,7 +80,7 @@ sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$NUMPY_LIBRARY%g" Makefile
 sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$PREFIX/lib%g" Makefile
 
 
-sed -i.bak "s%-framework Python%%g" Makefile
+sed -i.bak "s%-framework Python%-lpython2.7%g" Makefile
 
 # sed -i.bak "s%CPPFLAGS    =%CPPFLAGS    = $CXXFLAGS%g" Makefile
 
