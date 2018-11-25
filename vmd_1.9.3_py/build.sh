@@ -78,8 +78,13 @@ sed -i.bak "s%INCDIRS     =%INCDIRS     = -I$NUMPY_INCLUDE_DIR%g" Makefile
 sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$PYTHON_LIBRARY%g" Makefile
 sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$NUMPY_LIBRARY%g" Makefile
 sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$PREFIX/lib%g" Makefile
-sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -D_FORTIFY_SOURCE=2 -mmacosx-version-min=10.9%g" Makefile
+
+sed -i.bak "s%CPPFLAGS    =%CPPFLAGS    = $CXXFLAGS%g" Makefile
+
+sed -i.bak "s%INCDIRS     =%INCDIRS     = -D_FORTIFY_SOURCE=2 -mmacosx-version-min=10.9%g" Makefile
 sed -i.bak "s%/System/Library/%/opt/MacOSX10.9.sdk/System/Library/%g" Makefile
+
+
 
 make veryclean
 make -j 8
