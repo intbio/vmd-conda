@@ -82,7 +82,7 @@ sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$PREFIX/lib%g" Makefile
 # sed -i.bak "s%CPPFLAGS    =%CPPFLAGS    = $CXXFLAGS%g" Makefile
 
 sed -i.bak "s%INCDIRS     =%INCDIRS     = --sysroot=/opt/MacOSX10.9.sdk -D_FORTIFY_SOURCE=2 -mmacosx-version-min=10.9%g" Makefile
-# sed -i.bak "s%/System/Library/%/opt/MacOSX10.9.sdk/System/Library/%g" Makefile
+sed -i.bak "s%/System/Library/%/opt/MacOSX10.9.sdk/System/Library/%g" Makefile
 
 
 
