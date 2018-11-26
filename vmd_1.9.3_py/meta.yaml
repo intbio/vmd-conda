@@ -28,8 +28,8 @@ requirements:
    # - cmake
   host:
     # - xorg-libx11 # [osx]
-    # - fltk=1.3.4
-    # - tk=8.5*
+    - fltk=1.3.4 # [not osx]
+    - tk=8.5* # [not osx]
     - libnetcdf
     - libpng
     #- numpy
@@ -42,8 +42,8 @@ requirements:
     - numpy
   run:
     # - xorg-libx11 # [osx]
-    # - fltk=1.3.4
-    # - tk=8.5*
+    - fltk=1.3.4 # [not osx]
+    - tk=8.5* # [not osx]
     - libnetcdf
     - libpng
     #- numpy
@@ -55,7 +55,7 @@ requirements:
     - numpy
 test:
  commands:
-  - vmd_py -python -dispdev none 
+  - vmd_py -python # [not osx]
 
 
 #extra:
