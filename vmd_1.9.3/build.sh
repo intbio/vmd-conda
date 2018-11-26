@@ -146,8 +146,8 @@ sed -i.bak "s%-lnetcdf%$PREFIX/lib/libnetcdf.a%g" Makefile
 # sed -i.bak "s%LIBDIRS     =%LIBDIRS     = $PREFIX/lib/libnetcdf.a $PREFIX/lib/libpng16.a%g" Makefile
 # rm $PREFIX/lib/libnetcdf*dylib $PREFIX/lib/libpng*dylib
 
-sed -i.bak "s%INCDIRS     =%INCDIRS     = -I$PREFIX/include%g" Makefile
-sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$PREFIX/lib%g" Makefile
+sed -i.bak "s%INCDIRS     =%INCDIRS     = -I$PREFIX/include -I$PREFIX/../_build_env/include%g" Makefile
+sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$PREFIX/lib -L$PREFIX/../_build_env/lib%g" Makefile
 # sed -i.bak "s%-framework Python%-lpython2.7%g" Makefile
 
 sed -i.bak "s%INCDIRS     =%INCDIRS     = --sysroot=/opt/MacOSX10.9.sdk -D_FORTIFY_SOURCE=2 -mmacosx-version-min=10.9%g" Makefile
