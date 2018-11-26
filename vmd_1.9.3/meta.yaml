@@ -53,9 +53,10 @@ requirements:
   #  - libhwloc 1.*
     # - python=2.7.15
     # - numpy
-test:
- commands:
-  - vmd 
+
+# test:
+ # commands:
+  # - vmd # uncomment to test
 
 
 #extra:
