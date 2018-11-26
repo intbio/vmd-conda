@@ -27,7 +27,7 @@ ln -s fltk include
 cd fltk
 make clean
 ./configure --prefix="$PWD/../MACOSXX86_64" --exec-prefix="$PWD/../MACOSXX86_64" --libdir="$PWD/../MACOSXX86_64" CXXFLAGS="-mmacosx-version-min=$OSX_VER" LDFLAGS="-mmacosx-version-min=$OSX_VER"
-make -j 8
+make -j 4
 make install
 
 
@@ -151,7 +151,7 @@ sed -i.bak "s%-framework Python%-lpython2.7%g" Makefile
 
 
 make veryclean
-make -j 8
+make -j 4
 make install
 ## See INSTALL of gromacs distro
 # cmake .. \
