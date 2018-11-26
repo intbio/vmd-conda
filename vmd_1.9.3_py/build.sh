@@ -155,26 +155,111 @@ sed -i.bak "s%/System/Library/%/opt/MacOSX10.9.sdk/System/Library/%g" Makefile
 make veryclean
 make -j 4
 make install
-## See INSTALL of gromacs distro
-# cmake .. \
-#   -DSHARED_LIBS_DEFAULT=OFF \
-#   -DBUILD_SHARED_LIBS=OFF \
-#   -DGMX_PREFER_STATIC_LIBS=YES \
-#   -DGMX_BUILD_OWN_FFTW=ON \
-#   -DGMX_DEFAULT_SUFFIX=ON \
-#   -DREGRESSIONTEST_DOWNLOAD=ON \
-#   -DGMX_MPI=OFF \
-#   -DGMX_GPU=OFF \
-#   -DGMX_SIMD=SSE2 \
-#   -DGMX_USE_OPENCL=OFF \
-#   -DCMAKE_PREFIX_PATH=$PREFIX \
-#   -DGMX_INSTALL_PREFIX=$PREFIX \
-#   -DCMAKE_INSTALL_PREFIX=$PREFIX \
-#   -DCMAKE_OSX_SYSROOT=/opt/MacOSX10.9.sdk/ \
-#   -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9
-# #make -j 8
-# make
-# make check
-# make install
+fi
+
+
+
+
+if [[ $target_platform == linux* ]]; then
+
+
+export PLUGINDIR="$PWD/vmd-1.9.3/plugins"
+export export TCLINC=-I$PREFIX/include
+export export TCLLIB=-L$PREFIX/lib
+cd plugins
+make   LINUXAMD64 TCLINC=$TCLINC TCLLIB=$TCLLIB
+make   distrib 
+cd ..
+
+#Let's make other libraries
+cd vmd-1.9.3/lib/
+
+mkdir -p actc
+cd actc
+wget https://downloads.sourceforge.net/project/actc/actc-source/1.1-final/actc-1.1.tar.gz
+tar -xf actc-1.1.tar.gz
+ln -s actc-1.1 include
+ln -s actc-1.1 lib_LINUXAMD64
+cd actc-1.1
+sed -i.bak 's%#include <malloc.h>%%g' tctest2.c
+make CFLAGS=-D__linux__
+cd ..
+cd ..
+
+
+# ACTC         - triangle mesh stripification library for higher speed surfaces
+# AVX512       - enable use of AVX512 instructions on target CPU
+# CUDA         - NVIDIA CUDA GPU acceleration functions
+# OPENCL       - OpenCL CPU/GPU/Accelerator device support
+# MPI          - MPI based message passing
+# IMD          - include option for connecting to remote MD simulations
+# VRPN         - include VRPN tracker lib for spatial trackers
+# LIBSBALL     - Direct I/O Spaceball 6DOF input device
+# XINERAMA     - Support for Xinerama-optimized full-screen mode
+# XINPUT       - X-Windows XInput based Spaceball, Dial box, Button box
+
+# TDCONNEXION  - 3DConnexion MacOS X driver for Spaceball 6DOF input devices
+#Activate it if drivers installed
+
+# LIBGELATO    - built-in rendering via Gelato library   
+# LIBOPTIX     - built-in accelerated ray tracing for NVIDIA GPUs
+# LIBOSPRAY    - built-in accelerated ray tracing for Intel CPUs
+# +LIBTACHYON   - built-in raytracing via Tachyon (on CPUs)
+cd tachyon
+wget http://www.photonlimited.com/~johns/tachyon/files/0.99b6/tachyon-0.99b6.tar.gz
+tar -xf tachyon-0.99b6.tar.gz
+cd tachyon/unix
+make linux-64
+cd ..
+cd ..
+ln -s tachyon/src include
+ln -s tachyon/compile/linux-64 lib_LINUXAMD64
+cp tachyon/compile/linux-64/tachyon tachyon_LINUXAMD64
+cd ..
+
+
+# +LIBPNG       - PNG image output support # This can be installed through conda
+# +NETCDF       - NetCDF file I/O library # This can be installed through conda
+#Below we adk them to be linked statically
+
+
+# NOSTATICPLUGINS - disable use of statically linked molfile plugins
+# CONTRIB      - user contributed code for VMD which has restrictions
+# +TCL          - The Tcl scripting language
+# +PYTHON       - The Python scripting language
+# +PTHREADS     - POSIX Threads Support
+# +NUMPY        - Numeric Python extensions
+
+
+
+cd ..
+
+echo "LINUXAMD64 OPENGL OPENGLPBUFFER FLTK TK COLVARS IMD VRPN SILENT LIBSBALL XINPUT TCL PTHREADS ACTC LIBTACHYON LIBOPTIX LIBOSPRAY NETCDF PYTHON NUMPY CUDA XINERAMA" > configure.options
+
+
+
+export VMDINSTALLNAME='vmd_py'
+export VMDINSTALLBINDIR=$PREFIX/bin #/usr/local/bin
+export VMDINSTALLLIBRARYDIR=$PREFIX/vmd #/usr/local/lib/$install_name
+export PYTHON_INCLUDE_DIR=$PREFIX/include/python2.7
+export NUMPY_INCLUDE_DIR=$PREFIX/lib/python2.7/site-packages/numpy/core/include
+export PYTHON_LIBRARY=$PREFIX/lib/python2.7/site-packages/numpy/core/include
+export NUMPY_LIBRARY=$PREFIX/lib/python2.7/site-packages/numpy
+
+./configure 
+cd src
+# sed -i.bak 's/fltk-1.3.x/fltk/g' Makefile
+# sed -i.bak 's%../lib/tk/lib_MACOSXX86_64/Tk.framework/Versions/8.5/Headers%/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers%g' Makefile
+# sed -i.bak "s%INCDIRS     =%INCDIRS     = -I$PYTHON_INCLUDE_DIR%g" Makefile
+
+# sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$PYTHON_LIBRARY%g" Makefile
+
+sed -i.bak "s%INCDIRS     =%INCDIRS     = -I$PREFIX/include%g" Makefile
+sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$PREFIX/lib%g" Makefile
+
+
+make veryclean
+make -j 4
+make install
 
 fi
