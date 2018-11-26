@@ -3,6 +3,9 @@
 Anaconda recipe for [VMD](http://www.ks.uiuc.edu/Research/vmd/).
 Compiles VMD 64-bit with Python support.
 
+## Contents
+
+- vmd_1.9.3 is VMD made with MACOSXX86_64 LP64 FLTKOPENGL FLTK TK  TCL PTHREADS  ACTC COLVARS  LIBTACHYON  LIBPNG NETCDF TDCONNEXION
 
 
 ## Building 
