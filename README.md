@@ -18,7 +18,8 @@ Compiles VMD 64-bit with Python support.
 conda install conda-build
 #conda install anaconda-client
 
-#For OSX you'll need to download older compatible SDK
+#For OSX you'll need to download older compatible SDK 10.9
+# And add 3dconnexion framework there
 #See here https://conda.io/docs/user-guide/tasks/build-packages/compiler-tools.html
 #See https://github.com/phracker/MacOSX-SDKs/releases
 conda-build -c conda-forge vmd_1.9.3
