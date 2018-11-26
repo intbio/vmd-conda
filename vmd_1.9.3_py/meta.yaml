@@ -30,7 +30,8 @@ requirements:
     # - xorg-libx11 # [osx]
     # - fltk=1.3.4
     # - tk=8.5*
-    # - libnetcdf
+    - libnetcdf
+    - libpng
     #- numpy
   #  - openmp # [linux]
   #  - ocl-icd
@@ -43,7 +44,8 @@ requirements:
     # - xorg-libx11 # [osx]
     # - fltk=1.3.4
     # - tk=8.5*
-    # - libnetcdf
+    - libnetcdf
+    - libpng
     #- numpy
  #   - ocl-icd
   #  - openmp # [linux]
@@ -53,7 +55,7 @@ requirements:
     - numpy
 test:
  commands:
-  - vmd -python
+  - vmd_py -python -dispdev none 
 
 
 #extra:
