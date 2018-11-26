@@ -38,7 +38,7 @@ requirements:
   #  - libhwloc 1.*
   #  - fftw
   #  - perl
-    - python=2.7.15
+    - python=2.7
     - numpy
   run:
     # - xorg-libx11 # [osx]
@@ -51,7 +51,7 @@ requirements:
   #  - openmp # [linux]
   #  - fftw
   #  - libhwloc 1.*
-    - python=2.7.15
+    - python=2.7
     - numpy
 test:
  commands:
