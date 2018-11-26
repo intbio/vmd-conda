@@ -140,8 +140,8 @@ sed -i.bak 's%../lib/tk/lib_MACOSXX86_64/Tk.framework/Versions/8.5/Headers%/Syst
 # sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$PYTHON_LIBRARY%g" Makefile
 # sed -i.bak "s%LIBDIRS     =%LIBDIRS     = -L$NUMPY_LIBRARY%g" Makefile
 
-sed -i.bak "s%-lpng%$PREFIX/lib/libpng.a%g" Makefile
-sed -i.bak "s%-lnetcdf%$PREFIX/lib/libnetcdf.a%g" Makefile
+sed -i.bak "s%-lpng%$PREFIX/../_build_env/lib/libpng.a%g" Makefile
+sed -i.bak "s%-lnetcdf%$PREFIX/../_build_env/lib/libnetcdf.a%g" Makefile
 
 # sed -i.bak "s%LIBDIRS     =%LIBDIRS     = $PREFIX/lib/libnetcdf.a $PREFIX/lib/libpng16.a%g" Makefile
 # rm $PREFIX/lib/libnetcdf*dylib $PREFIX/lib/libpng*dylib
