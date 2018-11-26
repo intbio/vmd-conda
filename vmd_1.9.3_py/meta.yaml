@@ -25,13 +25,13 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - wget
+    - libnetcdf
+    - libpng
    # - cmake
   host:
     # - xorg-libx11 # [osx]
     - fltk=1.3.4 # [not osx]
     - tk=8.5* # [not osx]
-    - libnetcdf
-    - libpng
     #- numpy
   #  - openmp # [linux]
   #  - ocl-icd
