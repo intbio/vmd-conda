@@ -37,8 +37,8 @@ cd ..
 cd ..
 cd ..
 export PLUGINDIR="$PWD/vmd-1.9.3/plugins"
-export export TCLINC=-I/System/Library/Frameworks/Tcl.framework/Versions/8.5/Headers
-export export TCLLIB=-L/System/Library/Frameworks/Tcl.framework/Versions/8.5/Headers
+export TCLINC=-I/System/Library/Frameworks/Tcl.framework/Versions/8.5/Headers
+export TCLLIB=-L/System/Library/Frameworks/Tcl.framework/Versions/8.5/Headers
 cd plugins
 make   MACOSXX86_64 TCLINC=$TCLINC TCLLIB=$TCLLIB
 make   distrib 
