@@ -11,6 +11,8 @@ Compiles VMD 64-bit with Python support.
 - vmd_1.9.3_py is VMD made with
      - For Mac: MACOSXX86_64 LP64 FLTKOPENGL FLTK TK  TCL PTHREADS  ACTC COLVARS  LIBTACHYON  LIBPNG NETCDF TDCONNEXION PYTHON   NUMPY
 
+UNFORTUNATELY vmd_1.9.3_py does not run in graphics mode under OSX, although is usable in text mode with python.
+
 ## Building 
 
 
